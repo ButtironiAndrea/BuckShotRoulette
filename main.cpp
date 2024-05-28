@@ -1,7 +1,6 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
-#include <algorithm>
 #include <unistd.h>
 
 
@@ -50,8 +49,10 @@ void tabellone(Gioco v){
 }
 
 Gioco AIdealer(Gioco v){
-    cout<<"vediamo un po..."<<endl;
+    cout<<"|TURNO DEL DEALER|"<<endl<<endl;
     sleep(1);
+    cout<<"vediamo un po..."<<endl;
+    sleep(2);
     int sceltadealer=0;
     if(v.numero1>v.numero2)
        sceltadealer=1;
@@ -119,6 +120,8 @@ int main() {
         tabellone(stat);
         if(stat.turno==true)
             stat=AIdealer(stat);
+        else
+            cout<<"|TURNO DI "<<stat.nome<<"|"<<endl<<endl;
         cout << "Proiettili veri: " << stat.numero1 << endl;
         cout << "Proiettili falsi: " << stat.numero2 << endl;
 
@@ -176,7 +179,7 @@ int main() {
 
 
         if (stat.numero1 == 0 && stat.numero2 == 0 || stat.vitadealer==0) {
-            cout << "Hai vinto il gioco. Complimenti" << endl;
+            cout <<endl<< "Hai vinto il gioco. Complimenti" << endl;
             continua = false;
         }
     }
